@@ -9,10 +9,10 @@ export const FeedUpsert = () => {
   console.log(state);
   const formEl = useRef();
 
-  const [query, setQuery] = useState(state.feed.uref.query);
-  const [feedDate, setFeedDate] = useState(state.feed.uref.feedDate);
-  const [feedTime, setFeedTime] = useState(state.feed.uref.feedTime);
-  const [topic, setTopic] = useState(state.feed.uref.topic);
+  const [query, setQuery] = useState(state?.feed?.uref?.query);
+  const [feedDate, setFeedDate] = useState(state?.feed?.uref?.feedDate);
+  const [feedTime, setFeedTime] = useState(state?.feed?.uref?.feedTime);
+  const [topic, setTopic] = useState(state?.feed?.uref?.topic);
 
   const [relevance, setRelevance] = useState(state.feed.uref.relevance);
   const [totalComments, setTotalComments] = useState(
@@ -85,7 +85,7 @@ export const FeedUpsert = () => {
     if (isFormValid) {
       dispatch(
         updateFeedAction({
-          id: state.feed.uref.id,
+          id: state?.feed?.uref?.id,
           query,
           feedDate,
           feedTime,
@@ -112,10 +112,10 @@ export const FeedUpsert = () => {
   return (
     <div>
       <div className="alert alert-secondary">
-        {state.feed.uref.id ? <h5>Feed Update</h5> : <h5>Feed Create</h5>}
+        {state?.feed?.uref?.id ? <h5>Feed Update</h5> : <h5>Feed Create</h5>}
       </div>
 
-      {state.feed.progress && (
+      {state?.feed?.progress && (
         <div className="mx-4 alert alert-success">Operation Success</div>
       )}
 
@@ -212,7 +212,7 @@ export const FeedUpsert = () => {
         </div>
 
         <div>
-          {state.feed.uref.id ? (
+          {state?.feed?.uref?.id ? (
             <input
               type="button"
               onClick={updateFeed}

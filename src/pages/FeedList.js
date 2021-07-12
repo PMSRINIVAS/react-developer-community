@@ -54,7 +54,7 @@ export const FeedList = () => {
           </tr>
         </thead>
         <tbody>
-          {state.feed.feedList.map((item, index) => (
+          {state.feed?.feedList?.map((item, index) => (
             <tr key={index}>
               <th scope="row">{item.id}</th>
               <td>{item.query}</td>
